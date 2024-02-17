@@ -1,63 +1,51 @@
-## Deploy Your Application with Heroku and GitHub
+Explore the app on https://hybmotvnsurvey.streamlit.app/
 
-### Check Out the Deployed App
-Explore the deployed app: [HybMotivationSurvey](https://hybmotivationsurvey-7b5b3d0eb29e.herokuapp.com/)
+To deploy a Streamlit app on Streamlit Cloud, follow these steps:
 
-### Getting Started
+### Step 1: Prepare Your Streamlit App
+Before you begin the deployment process, ensure your Streamlit app is ready and tested locally.
 
-#### Pre-requisites:
-- **GitHub Account:** Ensure you have a GitHub account.
-- **Heroku Account:** Make sure you're registered on Heroku.
-- **Git:** Install Git on your computer ([Download Git](https://git-scm.com/downloads)).
-- **Heroku CLI:** Install the Heroku Command Line Interface ([Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)).
+- Make sure your app runs without errors locally by using the `streamlit run your_app.py` command.
+- Create a `requirements.txt` file that lists all the Python libraries that your app depends upon. You can generate this file using `pip freeze > requirements.txt` if you're not sure what to include.
 
-### Push Code to GitHub
+### Step 2: Push Your App to GitHub
+Streamlit Cloud deploys directly from GitHub repositories, so your code must be hosted there.
 
-#### 1. Initialize a Git Repository
-- Navigate to your project's directory in the terminal.
-- Run `git init` to create a new Git repository.
+- If you haven't already, initialize a git repository in your app's directory with `git init`.
+- Commit your Streamlit app, `requirements.txt`, and any other necessary files to the repository.
+- Create a new repository on GitHub and push your local repository to GitHub with `git push`.
 
-#### 2. Add Your Project to the Repository
-- Stage your project files with `git add .`.
-- Commit the changes using `git commit -m "Initial commit"`.
+### Step 3: Deploy on Streamlit Cloud
+With your app on GitHub, you can now deploy it on Streamlit Cloud.
 
-#### 3. Create a GitHub Repository
-- Visit [GitHub](https://github.com/) and create a new repository.
+1. **Sign up or log in** to [Streamlit Cloud](https://streamlit.io/cloud).
+2. **Connect your GitHub** account to Streamlit Cloud if you haven’t already done so.
+3. **Deploy your app** by clicking 'New app', then select the GitHub repository you want to deploy.
+4. Choose the branch where your app lives, and the path to your Streamlit app file (e.g., `app.py`).
+5. Click 'Deploy'. Streamlit will begin deploying your app, which will be live shortly.
 
-#### 4. Link Your Local Repository to GitHub
-- Follow GitHub's instructions to link your local repository. Typically, it involves:
-  ```
-  git remote add origin https://github.com/yourusername/yourrepositoryname.git
-  ```
+### Step 4: Monitor Your Deployment
+Once the deployment starts, you can monitor the progress. Streamlit will build an environment based on your `requirements.txt`, install all the dependencies, and then launch your app.
 
-#### 5. Push Your Code
-- Push your code to GitHub:
-  ```
-  git push -u origin master
-  ```
-  Use `main` instead of `master` if your branch is named `main`.
+- If there are any errors during deployment, check the logs to understand what went wrong. Common issues include missing dependencies or syntax errors in your Streamlit app.
 
-### Deploy to Heroku
+### Step 5: Access Your App
+After successful deployment, Streamlit will provide you with a URL where your app is hosted.
 
-#### 1. Log in to Heroku CLI
-- Open your terminal and log in to Heroku CLI with `heroku login`.
+- Visit the provided URL to see your live app.
+- Share the URL with others so they can view and interact with your app.
 
-#### 2. Create a Heroku App
-- Create a new app on Heroku with `heroku create`. This adds a Heroku remote to your repository.
+### Step 6: Making Changes
+If you need to update your app after it's been deployed:
 
-#### 3. Deploy Your Application
-- Deploy your application to Heroku:
-  ```
-  git push heroku master
-  ```
-  Replace `master` with `main` if necessary.
+- Make changes to your app locally.
+- Test your app to make sure it runs as expected.
+- Commit and push the changes to the same GitHub repository.
+- Streamlit Cloud will automatically detect the push event and redeploy your app with the changes.
 
-#### 4. Open Your Deployed Application
-- Open your app in a browser with `heroku open`.
+### Additional Tips
+- Always test your app locally before deploying.
+- If your app depends on large data files, consider hosting them elsewhere and downloading them on-the-fly in your app, as there might be limitations on the repository size.
+- For private repositories or more resources, consider Streamlit Cloud's paid tiers.
 
-### Additional Resources
-
-For a step-by-step video guide, search for the title or link directly on YouTube: ["Deploy to Heroku and Push Code to GitHub"](https://www.youtube.com/watch?v=nJHrSvYxzjE&t=306s). This video provides a detailed walkthrough to complement these instructions.
-
-
-Note : Do extract the pages.zip inside the folder the all files will be saved in
+Remember that deploying on Streamlit Cloud will make your app public. If your app uses sensitive data or requires specific privacy, ensure you handle this appropriately before deployment.
